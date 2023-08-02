@@ -26,32 +26,6 @@
             <i class="el-icon-s-order"></i>
             <span>患者中心</span>
           </el-menu-item>
-          <!-- === user ===-->
-          <el-submenu index="user">
-            <template slot="title">
-              <i class="el-icon-s-unfold"></i>
-              <span>患者管理</span>
-            </template>
-            <el-menu-item index="/userList">
-              <i class="el-icon-user-solid"></i>
-              <span>患者列表</span>
-            </el-menu-item>
-            <el-menu-item index="/addUser">
-              <i class="el-icon-circle-plus"></i>
-              <span>添加患者</span>
-            </el-menu-item>
-          </el-submenu>
-
-          <!-- === doctor ===-->
-          <el-submenu index="doctor">
-            <template slot="title">
-              <i class="el-icon-s-unfold"></i>
-              <span>工作人员管理</span>
-            </template>
-            <el-menu-item index="/doctorList">医生列表</el-menu-item>
-            <el-menu-item index="/addDoctor">添加医生</el-menu-item>
-          </el-submenu>
-
           <!-- === admin === -->
           <el-submenu index="admin">
             <template slot="title">

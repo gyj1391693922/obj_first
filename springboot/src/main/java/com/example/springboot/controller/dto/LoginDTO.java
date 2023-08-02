@@ -6,9 +6,7 @@ import lombok.Data;
 //封装返回数据
 @Data
 public class LoginDTO {
-    private String u_username;
+    private String userName;
 
-    private String u_phone;
-
-    private Long u_money;
+    private String passWord;
 }

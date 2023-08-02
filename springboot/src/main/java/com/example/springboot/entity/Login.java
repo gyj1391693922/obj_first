@@ -5,26 +5,16 @@ import lombok.Data;
 
 import java.util.Date;
 
-@Data//替换get/set方法
-public class User {
+@Data
+public class Login {
     private Integer id;
 
-    private String name;
+    private String userName;
 
-    private Integer age;
-
-    private String sex;
-
-    private String phone;
-
-    private String status;
-
-    private String ward;
-
-    private String idCard;
+    private String passWord;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
-    private Date createTime;
+    private Date create_time;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date updateTime;
