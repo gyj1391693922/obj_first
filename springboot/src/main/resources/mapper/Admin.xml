@@ -6,27 +6,27 @@
 
 
     <insert id="save">
-        insert into admin(u_id,u_username,u_password,u_name,u_idCard,u_address,u_phone,u_money) values (#{u_id},#{u_username},#{u_password},#{u_name},#{u_idCard},#{u_address},#{u_phone},#{u_money})
+        insert into Admin(u_username,u_password,u_name,u_idCard,u_address,u_phone,u_money) values (#{u_username},#{u_password},#{u_name},#{u_idCard},#{u_address},#{u_phone},0)
     </insert>
 
 
     <update id="updateById">
-        update admin set u_id = #{u_id},u_username=#{u_username},u_password=#{u_password},u_name=#{u_name},u_idCard=#{u_idCard},u_address=#{u_address},u_phone=#{u_phone},u_money=#{u_money} where u_id = #{u_id}
+        update Admin set u_id = #{u_id},u_username=#{u_username},u_password=#{u_password},u_name=#{u_name},u_idCard=#{u_idCard},u_address=#{u_address},u_phone=#{u_phone},u_money=#{u_money} where u_id = #{u_id}
     </update>
 
 
     <delete id="deleteById">
-        delete from admin where u_id = #{u_id}
+        delete from Admin where u_id = #{u_id}
     </delete>
 
 
     <select id="list" resultType="com.example.springboot.entity.Admin">
-        select * from admin
+        select * from Admin
     </select>
 
 
     <select id="listByCondition" resultType="com.example.springboot.entity.Admin">
-        select * from admin
+        select * from Admin
             <where>
                 <if test="u_username != null and u_username != ''">
                     u_id like concat('%',#{u_id},'%')
@@ -40,11 +40,11 @@
 
 
     <select id="getById" resultType="com.example.springboot.entity.Admin">
-        select * from admin where u_id = #{u_id}
+        select * from Admin where u_id = #{u_id}
     </select>
 
 
     <select id="getByUsernameAndPassword" resultType="com.example.springboot.entity.Admin">
-        select * from admin where u_username = #{u_username} and u_password = #{u_password}
+        select * from Admin where u_username = #{u_username} and u_password = #{u_password}
     </select>
 </mapper>

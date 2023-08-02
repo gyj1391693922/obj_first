@@ -61,6 +61,29 @@
             <el-menu-item index="/adminList">用户列表</el-menu-item>
             <el-menu-item index="/addAdmin">添加用户</el-menu-item>
           </el-submenu>
+
+          <!-- ==== medicinal ==== -->
+          <el-submenu index="medicinal">
+            <template slot="title">
+              <i class="el-icon-s-unfold"></i>
+              <span>药品专柜</span>
+            </template>
+            <el-menu-item index="/medicinalList">药品信息</el-menu-item>
+            <el-menu-item index="/addMedicinal">添加药品</el-menu-item>
+          </el-submenu>
+
+          <!-- ==== receipt ==== -->
+          <el-submenu index="receipt">
+            <template slot="title">
+              <i class="el-icon-s-unfold"></i>
+              <span>订单信息</span>
+            </template>
+            <el-menu-item index="/receiptList">订单详情</el-menu-item>
+            <el-menu-item index="/addReceipt">添加订单</el-menu-item>
+          </el-submenu>
+
+
+
         </el-menu>
       </div>
       <!--主体数据-->

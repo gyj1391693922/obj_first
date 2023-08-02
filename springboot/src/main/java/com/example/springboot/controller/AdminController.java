@@ -5,12 +5,15 @@ import com.example.springboot.controller.dto.LoginDTO;
 import com.example.springboot.controller.request.AdminPageRequest;
 import com.example.springboot.controller.request.LoginRequest;
 import com.example.springboot.entity.Admin;
+import com.example.springboot.exception.ServiceException;
 import com.example.springboot.service.IAdminService;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Log4j2
 @CrossOrigin
 @RestController
 @RequestMapping("/admin")
@@ -42,8 +45,14 @@ public class AdminController {
         //增加
     @PostMapping("/save")
     public Result save(@RequestBody Admin obj){
+        try{
+            adminService.save(obj);
+        }catch(Exception e){
+            log.error("数据插入失败,用户名已存在或其他不可知的原因,详细请查看日志:username:{}",obj.getU_username());
+            System.out.println("具体错误信息：" + e.getMessage());
+            throw new ServiceException("用户插入失败");
+        }
 
-        adminService.save(obj);
         return Result.success();
     }
         //修改

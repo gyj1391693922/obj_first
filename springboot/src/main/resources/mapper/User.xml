@@ -4,20 +4,21 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.springboot.mapper.UserMapper">
     <insert id="save">
-        insert into patient_information(name,age,sex,phone,status,ward,idCard,createTime,updateTime,id) values (#{name},#{age},#{sex},#{phone},#{status},#{ward},#{idCard},now(),now(),#{id})
+        insert into User(name,age,sex,phone,status,ward,idCard,createTime,updateTime) values (#{name},#{age},#{sex},#{phone},#{status},#{ward},#{idCard},now(),now())
+
     </insert>
     <update id="updateById">
-        update patient_information set name = #{name},age=#{age},sex=#{sex},phone=#{phone},status=#{status},ward=#{ward},updateTime=now() where id = #{id}
+        update User set name = #{name},age=#{age},sex=#{sex},phone=#{phone},status=#{status},ward=#{ward},updateTime=now() where id = #{id}
     </update>
     <delete id="deleteById">
-        delete from patient_information where id = #{id}
+        delete from User where id = #{id}
     </delete>
     <select id="list" resultType="com.example.springboot.entity.User">
-        select * from patient_information
+        select * from User
     </select>
 
     <select id="listByCondition" resultType="com.example.springboot.entity.User">
-        select * from patient_information
+        select * from User
             <where>
                 <if test="name != null and name != ''">
                     name like concat('%',#{ name },'%')
@@ -32,6 +33,6 @@
         order by createTime desc
     </select>
     <select id="getById" resultType="com.example.springboot.entity.User">
-        select * from patient_information where id = #{id}
+        select * from User where id = #{id}
     </select>
 </mapper>

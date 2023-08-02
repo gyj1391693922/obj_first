@@ -32,7 +32,6 @@ public class UserController {
 
     @PostMapping("/save")
     public Result save(@RequestBody User user){
-
         userService.save(user);
         return Result.success();
     }

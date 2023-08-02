@@ -74,10 +74,44 @@ const routes = [
         component: () => import('@/views/admin/Add.vue')
       },
       {
-        path:'editAdmin',
-        name:'EditAdmin',
+        path: 'editAdmin',
+        name: 'EditAdmin',
         component: () => import('@/views/admin/Edit.vue')
+      },
+        // ==== medicinal ====
+      {
+        path:'medicinalList',
+        name:'Medicinal',
+        component:() => import('@/views/medicinal/List')
+      },
+      {
+        path:'addMedicinal',
+        name:'AddMedicinal',
+        component:() => import('@/views/medicinal/Add')
+      },
+      {
+        path:'editMedicinal',
+        name:'EditMedicinal',
+        component:() => import('@/views/medicinal/Edit')
+      },
+
+        // ==== 购买单 ====
+      {
+        path:'receiptList',
+        name:'Receipt',
+        component:() => import('@/views/receipt/List')
+      },
+      {
+        path:'addReceipt',
+        name:'AddReceipt',
+        component:() => import('@/views/receipt/Add')
+      },
+      {
+        path:'editReceipt',
+        name:'EditReceipt',
+        component:() => import('@/views/receipt/Edit')
       }
+
     ]
   },
 

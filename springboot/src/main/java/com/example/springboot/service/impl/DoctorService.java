@@ -13,12 +13,14 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
 //service的作用就是聚合业务，将业务放到service里面写
 
 @Service
+@Transactional
 public class DoctorService implements IDoctorService {
 
     @Autowired

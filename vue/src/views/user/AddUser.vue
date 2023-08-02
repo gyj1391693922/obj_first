@@ -19,8 +19,8 @@
       <el-form-item label="患者状态">
         <el-input v-model="form.status" placeholder="请输入患者状态"></el-input>
       </el-form-item>
-      <el-form-item label="使用病房">
-        <el-input v-model="form.ward" placeholder="当前使用病房，如未使用输入无"></el-input>
+      <el-form-item label="患者病房">
+      <el-cascader v-model="form.ward" :show-all-levels="false" :options="options" clearable placeholder="请选择病房"></el-cascader>
       </el-form-item>
     </el-form>
 
@@ -63,20 +63,32 @@ export default {
         age:[
           {validator: checkAge, trigger:'blur'}
         ]
-      }
+      },
+      options: [{
+        value: '1001',
+        label: '1001',
+        children: [{
+          value: '100101',
+          label: '1号床位'
+        }]
+      }]
     }
   },
   methods:{
     save(){
       this.$refs['ruleForm'].validate((valid) => {
+        const bed = this.form.ward[1]
+        this.form.ward = bed // 将 bed 存储到 form 对象的 bed 属性中
         if (valid) {
           request.post("/user/save", this.form).then(res => {
             if (res.code === "200"){
+
               this.$notify.success('新增成功')
               this.from={sex:'武装直升机'}
             }else {
               this.$notify.error(res.msg)
             }
+
           })
         }else{
           alert("数据不合法")
