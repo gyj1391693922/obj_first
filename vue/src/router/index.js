@@ -30,6 +30,38 @@ const routes = [
         name: 'Home',
         component: ()=>import('@/views/home/HomeView.vue')
       },
+      // ==== User ====
+      {
+        path: 'userList',
+        name: 'User',
+        component: ()=>import('@/views/user/User.vue')
+      },
+      {
+        path:'addUser',
+        name:'AddUser',
+        component: () => import('@/views/user/AddUser.vue')
+      },
+      {
+        path:'editUser',
+        name:'EditUser',
+        component: () => import('@/views/user/EditUser.vue')
+      },
+      // ==== Doctor ====
+      {
+        path: 'doctorList',
+        name: 'doctor',
+        component: ()=>import('@/views/doctor/List.vue')
+      },
+      {
+        path:'addDoctor',
+        name:'AddDoctor',
+        component: () => import('@/views/doctor/Add.vue')
+      },
+      {
+        path:'editDoctor',
+        name:'EditDoctor',
+        component: () => import('@/views/doctor/Edit.vue')
+      },
       // ==== Admin ====
       {
         path: 'adminList',
@@ -46,6 +78,40 @@ const routes = [
         name: 'EditAdmin',
         component: () => import('@/views/admin/Edit.vue')
       },
+        // ==== medicinal ====
+      {
+        path:'medicinalList',
+        name:'Medicinal',
+        component:() => import('@/views/medicinal/List')
+      },
+      {
+        path:'addMedicinal',
+        name:'AddMedicinal',
+        component:() => import('@/views/medicinal/Add')
+      },
+      {
+        path:'editMedicinal',
+        name:'EditMedicinal',
+        component:() => import('@/views/medicinal/Edit')
+      },
+
+        // ==== 购买单 ====
+      {
+        path:'receiptList',
+        name:'Receipt',
+        component:() => import('@/views/receipt/List')
+      },
+      {
+        path:'addReceipt',
+        name:'AddReceipt',
+        component:() => import('@/views/receipt/Add')
+      },
+      {
+        path:'editReceipt',
+        name:'EditReceipt',
+        component:() => import('@/views/receipt/Edit')
+      }
+
     ]
   },
 

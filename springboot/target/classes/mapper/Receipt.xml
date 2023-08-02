@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springboot.mapper.ReceiptMapper">
+    <insert id="save">
+        insert into Receipt(id,m_name,m_number,u_name,m_amount,u_phone,r_number,r_comment) values (#{id},#{m_name},#{m_number},#{u_name},#{m_amount},#{u_phone},#{r_number},#{r_comment})
+    </insert>
+    <update id="updateById">
+        update Receipt set id = #{id},m_name=#{m_name},m_number=#{m_number},u_name=#{u_name},m_amount=#{m_amount},u_phone=#{u_phone},r_number=#{r_number},r_comment=#{r_comment} where id = #{id}
+    </update>
+    <delete id="deleteById">
+        delete from Receipt where id = #{id}
+    </delete>
+    <select id="list" resultType="com.example.springboot.entity.Receipt">
+        select * from Receipt
+    </select>
+
+    <select id="listByCondition" resultType="com.example.springboot.entity.Receipt">
+        select * from Receipt
+            <where>
+                <if test="u_name != null and u_name != ''">
+                    u_name like concat('%',#{u_name},'%')
+                </if>
+                <if test="id != null and id != ''">
+                 and id like concat('%',#{id},'%')
+                 </if>
+                <if test="u_phone != null and u_phone != ''">
+                    and u_phone like concat('%',#{u_phone},'%')
+                </if>
+            </where>
+        order by r_createtime desc
+    </select>
+    <select id="getById" resultType="com.example.springboot.entity.Receipt">
+        select * from Receipt where id = #{id}
+    </select>
+
+</mapper>

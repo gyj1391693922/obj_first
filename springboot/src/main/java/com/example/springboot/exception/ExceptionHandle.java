@@ -7,9 +7,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
+
 @Slf4j
 @RestControllerAdvice
 public class ExceptionHandle {
+
 
     @ExceptionHandler(value = ServiceException.class)
     public Result serviceexceptionError(ServiceException e){
