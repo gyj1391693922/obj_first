@@ -8,3 +8,7 @@ springboot\
 mybatis\
 Vue\
 element-ui
+
+
+后端配置地址:
+src/main/resources/application.yml
